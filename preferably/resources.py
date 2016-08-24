@@ -1,7 +1,9 @@
 import os
 import re
 
-CONF_RE = re.compile(r'^scripts_list\s*=\s*(.*?)$', flags=re.IGNORECASE)
+CONF_RE = re.compile(
+    r'^scripts_list\s*=\s*(.*?)$',
+    flags=re.IGNORECASE | re.MULTILINE)
 
 ICON = 'terminal.svg'
 HERE = os.path.abspath(os.path.dirname(__file__))
