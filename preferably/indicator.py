@@ -29,7 +29,7 @@ class ScriptsIndicator(object):
         self.indicator.set_menu(self.build_menu())
 
     def build_menu(self):
-        menu = self.make_menus(TOP_DIR, Gtk.Menu())
+        menu = self.build_main(TOP_DIR, Gtk.Menu())
 
         menu_sep = Gtk.SeparatorMenuItem()
         menu.append(menu_sep)
@@ -49,18 +49,21 @@ class ScriptsIndicator(object):
 
         return menu
 
-    def make_menus(self, path, menu):
+    def build_main(self, path, menu):
         gen = os.walk(path)
         root, dirs, files = next(gen)
         for f in files:
+            fpath = os.path.abspath(os.path.join(root, f))
+            if not os.access(fpath, os.X_OK):
+                continue
             item = Gtk.MenuItem(f)
-            item.abspath = os.path.abspath(os.path.join(root, f))
+            item.abspath = fpath
             item.connect('activate', self.run)
             menu.append(item)
         for d in dirs:
             item = Gtk.MenuItem(d)
             submenu = Gtk.Menu()
-            item.set_submenu(self.make_menus(os.path.join(root, d), submenu))
+            item.set_submenu(self.build_main(os.path.join(root, d), submenu))
             menu.append(item)
 
         return menu
