@@ -23,3 +23,5 @@ TOP_DIR = os.path.join(USER_HOME, START_DIR)
 
 if not os.path.exists(TOP_DIR):
     os.mkdir(TOP_DIR)
+
+SCRIPT_TEMPLATE = os.path.join(HERE, '.bash_template')
