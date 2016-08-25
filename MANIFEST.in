@@ -1,1 +1,1 @@
-recursive-include preferably/icons *.svg
+recursive-include indicator_scripts/icons *.svg

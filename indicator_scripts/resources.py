@@ -11,7 +11,7 @@ ICON_PATH = os.path.join(HERE, 'icons', ICON)
 START_DIR = '.scripts_list'
 
 USER_HOME = os.path.expanduser('~')
-CONFIG = os.path.join(USER_HOME, '.preferably')
+CONFIG = os.path.join(USER_HOME, '.indicator_scripts')
 
 if os.path.exists(CONFIG):
     with open(CONFIG, 'r') as f:

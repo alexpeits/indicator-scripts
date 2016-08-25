@@ -1,5 +1,5 @@
-preferably
-==========
+indicator_scripts
+=================
 
 Gtk3 indicator for categorizing and executing scripts easily
 

@@ -9,7 +9,7 @@ gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
 from gi.repository import Gtk, AppIndicator3
 
-from preferably.resources import ICON_PATH, TOP_DIR, SCRIPT_TEMPLATE
+from indicator_scripts.resources import ICON_PATH, TOP_DIR, SCRIPT_TEMPLATE
 
 APP_NAME = 'indicator-scripts'
 
